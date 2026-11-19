@@ -29,10 +29,15 @@ $message = "Incorrect username or password.";
 
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" href="style.css">
 <body>
 
+<h1>Login</h1>
+
 <form method="POST">
+<h2>username</h2>
 Username: <input type="text" name="username" required><br><br>
+<h2>password</h2>
 Password: <input type="password" name="password" required><br><br>
 <button type="submit">Login</button>
 </form>

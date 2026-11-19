@@ -3,10 +3,15 @@
 session_start();
 $choice = $_POST["choice"] ?? "";
 
+if (!isset($_SESSION["endings"])) {
+$_SESSION["endings"] = [];
+}
+
 ?>
 
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" href="style.css">
 <body>
 
 <h1>Choose Your Path</h1>
@@ -73,6 +78,8 @@ $choice = $_POST["choice"] ?? "";
 
 <?php elseif ($choice == "leave"): ?>
 
+$_SESSION["endings"][] = "ordinary";
+
 <p>You decide it is better not to get involved. You turn around and start running home.</p>
 
 <p>"... I don't want to die. I don't want to die!"</p>
@@ -83,12 +90,7 @@ $choice = $_POST["choice"] ?? "";
 
 <p>For the next couple of years, you live a normal life where you did your work, found a job, and lived like any other person. Quite the boring life, but it is nice. Though there is a part of you that wishes life could be a little bit more.</p>
 
-
-<?php elseif ($choice == "leave"): ?>
-
 <h2>And so your ordinary life continues</h2>
-
-<?php elseif ($choice == "stay"): ?>
 
 <?php elseif ($choice == "stay"): ?>
 
@@ -508,6 +510,8 @@ $choice = $_POST["choice"] ?? "";
 
 <?php elseif ($choice == "give_up"): ?>
 
+$_SESSION["endings"][] = "give_up";
+
 <h2>ENDING: Giving Up</h2>
 
 <p>You decide that you can't do this anymore.</p>
@@ -570,6 +574,8 @@ $choice = $_POST["choice"] ?? "";
 <?php elseif ($choice == "continue"): ?>
 
 <h2>ENDING: Becoming a True Hero</h2>
+
+$_SESSION["endings"][] = "continue";
 
 <p>You look at your wand for a long time.</p>
 
