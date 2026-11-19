@@ -7,11 +7,16 @@ if (!isset($_SESSION["endings"])) {
 $_SESSION["endings"] = [];
 }
 
+if ($choice == ""):
+?>
+
 ?>
 
 <!DOCTYPE html>
 <html>
+<head>
 <link rel="stylesheet" href="style.css">
+</head>
 <body>
 
 <h1>Choose Your Path</h1>
@@ -78,7 +83,9 @@ $_SESSION["endings"] = [];
 
 <?php elseif ($choice == "leave"): ?>
 
+<?php
 $_SESSION["endings"][] = "ordinary";
+?>
 
 <p>You decide it is better not to get involved. You turn around and start running home.</p>
 
@@ -91,6 +98,12 @@ $_SESSION["endings"][] = "ordinary";
 <p>For the next couple of years, you live a normal life where you did your work, found a job, and lived like any other person. Quite the boring life, but it is nice. Though there is a part of you that wishes life could be a little bit more.</p>
 
 <h2>And so your ordinary life continues</h2>
+
+<script>
+setTimeout(function() {
+window.location.href = "endingmap.php";
+}, 5000);
+</script>
 
 <?php elseif ($choice == "stay"): ?>
 
@@ -510,7 +523,9 @@ $_SESSION["endings"][] = "ordinary";
 
 <?php elseif ($choice == "give_up"): ?>
 
+<?php
 $_SESSION["endings"][] = "give_up";
+?>
 
 <h2>ENDING: Giving Up</h2>
 
@@ -570,12 +585,19 @@ $_SESSION["endings"][] = "give_up";
 
 <h2>And so, the hero disappears.</h2>
 
+<script>
+setTimeout(function() {
+window.location.href = "endingmap.php";
+}, 5000);
+</script>
 
 <?php elseif ($choice == "continue"): ?>
 
 <h2>ENDING: Becoming a True Hero</h2>
 
+<?php
 $_SESSION["endings"][] = "continue";
+?>
 
 <p>You look at your wand for a long time.</p>
 
@@ -688,6 +710,11 @@ $_SESSION["endings"][] = "continue";
 <p>And that is enough.</p>
 
 <h2>And so, you learn what it truly means to be a hero.</h2>
+<script>
+setTimeout(function() {
+window.location.href = "endingmap.php";
+}, 5000);
+</script>
 
 <?php endif; ?>
 </body>
