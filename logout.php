@@ -1,10 +1,15 @@
+<?php
+
+session_destroy();
+
+header("Location: login.php");
+exit();
+
+?>
+
 <!DOCTYPE html>
 <html>
 <body>
-
-<?php
-
-?>
 
 </body>
 </html>
