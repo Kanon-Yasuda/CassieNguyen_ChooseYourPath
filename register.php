@@ -24,7 +24,17 @@ $message = "Fill in all fields.";
 } elseif ($exists) {
 $message = "Username already exists.";
 } else {
-$file = fopen("data/users.txt", "a");
+
+$path = __DIR__ . "/data/users.txt";
+
+echo "Folder writable: " . (is_writable(__DIR__ . "/data") ? "Yes" : "No") . "<br>";
+echo "File writable: " . (is_writable($path) ? "Yes" : "No") . "<br>";
+
+$file = fopen($path, "a");
+
+if ($file === false) {
+die("Cannot open users.txt for writing.");
+}
 
 fputcsv($file, [$username, password_hash($password, PASSWORD_DEFAULT)]);
 
